@@ -63,10 +63,13 @@ def handle_dialog(req, res):
 
     # Обрабатываем ответ пользователя.
     if req['request']['original_utterance'].lower() in [
+        'да',
+        'ага',
         'спасибо',
         'правда',
         'согласен',
         'хорошо',
+        'так и есть',
     ]:
         # Пользователь согласился, прощаемся.
         res['response']['text'] = 'На самом деле я наврал, но вот тебе дешманская помадка за сотку, она поможет все испаравить! Но это не точно...'
@@ -97,7 +100,7 @@ def get_suggests(user_id):
     if len(suggests) < 2:
         suggests.append({
             "title": "Ладно",
-            "url": "https://market.yandex.ru/search?text=помадка за сотку",
+            "url": "https://market.yandex.ru/search?text=помада",
             "hide": True
         })
 
